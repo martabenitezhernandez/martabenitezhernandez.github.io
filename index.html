@@ -65,6 +65,10 @@ h2 { font-family: var(--mono); font-weight: 400; font-size: .78rem; letter-spaci
 .where { font-size: .9rem; color: var(--muted); margin: 0 0 .55rem; }
 .desc { margin: 0; }
 .desc + .desc { margin-top: .6rem; }
+.shot { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #ffffff; }
+.shot a, .shot img { display: block; }
+.shot img { width: 100%; height: auto; max-height: 380px; object-fit: contain; }
+.shot a:hover img { opacity: .92; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: .8rem 0 0; }
 .tags li { font-family: var(--mono); font-size: .72rem; border: 1px solid var(--line); background: var(--surface); padding: .15rem .5rem; border-radius: 3px; }
 .more { display: inline-block; margin-top: .7rem; font-size: .92rem; }
@@ -91,7 +95,7 @@ footer { font-size: .8rem; color: var(--muted); font-family: var(--mono); }
         <a href="https://github.com/martabenitezhernandez" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </div>
-    <img class="avatar" src="foto.jpg" alt="Foto de Marta Benítez Hernández"/>
+    <img class="avatar" src="img/foto.jpg" alt="Foto de Marta Benítez Hernández"/>
   </header>
   <section class="bio" aria-labelledby="bio-h">
     <h2 id="bio-h">Biografía</h2>
@@ -112,6 +116,11 @@ footer { font-size: .8rem; color: var(--muted); font-family: var(--mono); }
           <h3>Global Health Priorities</h3>
           <p class="where">INGENIO · programa Momentum</p>
           <p class="desc">Aplicación interactiva que presenta los resultados de un preprint de INGENIO sobre el desajuste entre la carga de enfermedad, la atención pública en Wikipedia y el esfuerzo investigador. Permite explorar los datos desde un menú lateral con filtros de selección y gráficos interactivos, entre ellos un triángulo ternario.</p>
+          <figure class="shot">
+            <a href="https://momentumingenio.shinyapps.io/global-health-priorities/" target="_blank" rel="noopener">
+              <img src="img/global-health-priorities.png" alt="Captura de la aplicación con el gráfico de distribución y el menú lateral de filtros" loading="lazy"/>
+            </a>
+          </figure>
           <ul class="tags">
             <li>R</li>
             <li>Shiny</li>
@@ -129,6 +138,11 @@ footer { font-size: .8rem; color: var(--muted); font-family: var(--mono); }
           <h3>Translational Triangle</h3>
           <p class="where">INGENIO · programa Momentum</p>
           <p class="desc">Herramienta en Python que mide hasta qué punto la investigación biomédica de un grupo de investigadores acaba influyendo en la investigación con personas. Descarga los datos de las APIs de Scopus y PubMed, los limpia y cruza, calcula nuevas métricas por investigador y presenta los resultados en un gráfico interactivo.</p>
+          <figure class="shot">
+            <a href="https://github.com/martabenitezhernandez/translational-triangle" target="_blank" rel="noopener">
+              <img src="img/translational-triangle.png" alt="Gráfico interactivo del triángulo traslacional con cada investigador como un círculo" loading="lazy"/>
+            </a>
+          </figure>
           <ul class="tags">
             <li>Python</li>
             <li>pandas</li>

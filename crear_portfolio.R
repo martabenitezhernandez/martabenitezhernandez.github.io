@@ -1,6 +1,6 @@
 # ------------------------------------------------------------------
 # crear_portfolio.R
-# Genera index.html (junto a foto.jpg), la web de portfolio de Marta Benítez Hernández.
+# Genera index.html (junto a la carpeta img/ con las imágenes), la web de portfolio de Marta Benítez Hernández.
 #
 # Uso
 #   install.packages("htmltools")   # solo la primera vez
@@ -22,7 +22,7 @@ persona <- list(
   nombre    = "Marta Benítez Hernández",
   rol       = "Titulada superior en INGENIO (CSIC–UPV). Desarrollo herramientas de recogida, análisis y visualización de datos sobre ciencia, medios y redes sociales.",
   email     = "martabenitezhernandez@gmail.com",
-  foto      = "foto.jpg",   # imagen en la misma carpeta que index.html
+  foto      = "img/foto.jpg",
   actualizado = "octubre 2026"
 )
 
@@ -41,7 +41,8 @@ biografia <- c(
   "Gracias a Momentum estoy cursando el Máster Universitario en Ciencia de Datos de la UOC, el campo hacia el que quiero orientar mi carrera profesional."
 )
 
-# Proyectos. Deja enlace = NULL si todavía no está publicado.
+# Proyectos. Deja enlace = NULL si todavía no está publicado
+# e imagen = NULL si no tienes captura. Las imágenes van en la carpeta img/.
 proyectos <- list(
   list(
     titulo   = "Global Health Priorities",
@@ -50,6 +51,8 @@ proyectos <- list(
     estado   = "Publicado",
     descripcion = "Aplicación interactiva que presenta los resultados de un preprint de INGENIO sobre el desajuste entre la carga de enfermedad, la atención pública en Wikipedia y el esfuerzo investigador. Permite explorar los datos desde un menú lateral con filtros de selección y gráficos interactivos, entre ellos un triángulo ternario.",
     etiquetas = c("R", "Shiny", "Visualización de datos"),
+    imagen = "img/global-health-priorities.png",
+    imagen_alt = "Captura de la aplicación con el gráfico de distribución y el menú lateral de filtros",
     enlace = "https://momentumingenio.shinyapps.io/global-health-priorities/",
     enlace_texto = "Ver la aplicación"
   ),
@@ -60,6 +63,8 @@ proyectos <- list(
     estado   = "Publicado",
     descripcion = "Herramienta en Python que mide hasta qué punto la investigación biomédica de un grupo de investigadores acaba influyendo en la investigación con personas. Descarga los datos de las APIs de Scopus y PubMed, los limpia y cruza, calcula nuevas métricas por investigador y presenta los resultados en un gráfico interactivo.",
     etiquetas = c("Python", "pandas", "Plotly", "Scopus API", "PubMed API", "MeSH"),
+    imagen = "img/translational-triangle.png",
+    imagen_alt = "Gráfico interactivo del triángulo traslacional con cada investigador como un círculo",
     enlace = "https://github.com/martabenitezhernandez/translational-triangle",
     enlace_texto = "Ver el repositorio"
   ),
@@ -70,6 +75,8 @@ proyectos <- list(
     estado   = "En curso",
     descripcion = "Estudio de cómo se vivió en Twitter la polémica que se desató en 2023 tras una carta que calificaba de pseudociencia la teoría de la información integrada de la consciencia. Desarrollé el proyecto completo, desde la captura de los tweets y su procesado hasta la construcción de una red de interacciones entre usuarios. Sobre esa red apliqué análisis de grafos y algoritmos de detección de comunidades, y modelos de temas (LDA y BERTopic) para identificar de qué se hablaba, todo ello integrado en una aplicación interactiva en Streamlit.",
     etiquetas = c("Python", "Streamlit", "NLP", "Análisis de redes"),
+    imagen = NULL,   # añade aquí una captura cuando la tengas
+    imagen_alt = NULL,
     enlace = NULL,
     enlace_texto = NULL
   )
@@ -135,6 +142,10 @@ h2 { font-family: var(--mono); font-weight: 400; font-size: .78rem; letter-spaci
 .where { font-size: .9rem; color: var(--muted); margin: 0 0 .55rem; }
 .desc { margin: 0; }
 .desc + .desc { margin-top: .6rem; }
+.shot { margin: 1rem 0 0; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: #ffffff; }
+.shot a, .shot img { display: block; }
+.shot img { width: 100%; height: auto; max-height: 380px; object-fit: contain; }
+.shot a:hover img { opacity: .92; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; list-style: none; padding: 0; margin: .8rem 0 0; }
 .tags li { font-family: var(--mono); font-size: .72rem; border: 1px solid var(--line); background: var(--surface); padding: .15rem .5rem; border-radius: 3px; }
 .more { display: inline-block; margin-top: .7rem; font-size: .92rem; }
@@ -175,6 +186,11 @@ tarjeta_proyecto <- function(p) {
             tags$h3(p$titulo),
             tags$p(class = "where", p$contexto),
             lapply(p$descripcion, function(x) tags$p(class = "desc", HTML(x))),
+            if (!is.null(p$imagen)) {
+              img <- tags$img(src = p$imagen, alt = p$imagen_alt, loading = "lazy")
+              tags$figure(class = "shot",
+                          if (!is.null(p$enlace)) tags$a(href = p$enlace, target = "_blank", rel = "noopener", img) else img)
+            },
             tags$ul(class = "tags", lapply(p$etiquetas, tags$li)),
             if (!is.null(p$enlace))
               tags$a(class = "more", href = p$enlace, target = "_blank", rel = "noopener",
