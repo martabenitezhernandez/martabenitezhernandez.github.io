@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------
 # crear_portfolio.R
 # Genera index.html (junto a la carpeta img/ con las imágenes), la web de portfolio de Marta Benítez Hernández.
+# https://martabenitezhernandez.github.io
 #
 # Uso
 #   install.packages("htmltools")   # solo la primera vez
