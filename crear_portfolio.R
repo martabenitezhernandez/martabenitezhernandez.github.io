@@ -21,10 +21,10 @@ library(htmltools)
 
 persona <- list(
   nombre    = "Marta Benítez Hernández",
-  rol       = "Titulada superior en INGENIO (CSIC–UPV). Desarrollo herramientas de recogida, análisis y visualización de datos sobre ciencia, medios y redes sociales.",
+  rol       = "Graduate research staff at INGENIO (CSIC–UPV). I build tools to collect, analyse and visualise data on science, the media and social networks.",
   email     = "martabenitezhernandez@gmail.com",
   foto      = "img/foto.jpg",
-  actualizado = "octubre 2026"
+  actualizado = "October 2026"
 )
 
 # Enlaces de la cabecera. Añade o quita filas libremente.
@@ -36,10 +36,10 @@ enlaces <- list(
 
 # Cada elemento es un párrafo de la biografía.
 biografia <- c(
-  "Estudié el Doble Grado en Ingeniería Informática y Matemáticas en la Universidad de Granada.",
-  "Durante este periodo hice un año de prácticas repartido en dos estancias de seis meses en empresas distintas, una en el CEPRUD y otra en EC3metrics.",
-  "Desde marzo de 2026 trabajo como titulada superior en INGENIO (CSIC–UPV), en Valencia, dentro del programa Momentum del CSIC. Desde entonces participo en los proyectos que aparecen más abajo.",
-  "Gracias a Momentum estoy cursando el Máster Universitario en Ciencia de Datos de la UOC, el campo hacia el que quiero orientar mi carrera profesional."
+  "I studied the Double Degree in Computer Engineering and Mathematics at the University of Granada.",
+  "During this time, I did internships at two companies, spending six months at CEPRUD and another six at EC3metrics.",
+  "Since March 2026 I have been working as graduate research staff at INGENIO (CSIC–UPV) in Valencia, as part of CSIC's Momentum programme. Since then I have been involved in the projects listed below.",
+  "Thanks to Momentum, I am studying for a Master's Degree in Data Science at the Universitat Oberta de Catalunya (UOC), the field I want to build my career in."
 )
 
 # Proyectos. Deja enlace = NULL si todavía no está publicado
@@ -47,35 +47,35 @@ biografia <- c(
 proyectos <- list(
   list(
     titulo   = "Global Health Priorities",
-    contexto = "INGENIO · programa Momentum",
+    contexto = "INGENIO · Momentum programme",
     fecha    = "2026",
-    estado   = "Publicado",
-    descripcion = "Aplicación interactiva que presenta los resultados de un preprint de INGENIO sobre el desajuste entre la carga de enfermedad, la atención pública en Wikipedia y el esfuerzo investigador. Permite explorar los datos desde un menú lateral con filtros de selección y gráficos interactivos, entre ellos un triángulo ternario.",
-    etiquetas = c("R", "Shiny", "Visualización de datos"),
+    estado   = "Published",
+    descripcion = "Interactive application that presents the results of an INGENIO preprint on the mismatch between disease burden, public attention on Wikipedia and research effort. Users can explore the data through a sidebar menu with selection filters and interactive charts, including a ternary triangle.",
+    etiquetas = c("R", "Shiny", "Data visualisation"),
     imagen = "img/global-health-priorities.png",
-    imagen_alt = "Captura de la aplicación con el gráfico de distribución y el menú lateral de filtros",
+    imagen_alt = "Screenshot of the application showing the distribution chart and the sidebar filter menu",
     enlace = "https://momentumingenio.shinyapps.io/global-health-priorities/",
-    enlace_texto = "Ver la aplicación"
+    enlace_texto = "View the app"
   ),
   list(
     titulo   = "Translational Triangle",
-    contexto = "INGENIO · programa Momentum",
+    contexto = "INGENIO · Momentum programme",
     fecha    = "2026",
-    estado   = "Publicado",
-    descripcion = "Herramienta en Python que mide hasta qué punto la investigación biomédica de un grupo de investigadores acaba influyendo en la investigación con personas. Descarga los datos de las APIs de Scopus y PubMed, los limpia y cruza, calcula nuevas métricas por investigador y presenta los resultados en un gráfico interactivo.",
+    estado   = "Published",
+    descripcion = "Python tool that measures to what extent the biomedical research of a group of researchers goes on to influence research involving people. It downloads data from the Scopus and PubMed APIs, cleans and merges it, computes new metrics for each researcher and presents the results in an interactive chart.",
     etiquetas = c("Python", "pandas", "Plotly", "Scopus API", "PubMed API", "MeSH"),
     imagen = "img/translational-triangle.png",
-    imagen_alt = "Gráfico interactivo del triángulo traslacional con cada investigador como un círculo",
+    imagen_alt = "Interactive translational triangle chart with each researcher shown as a circle",
     enlace = "https://github.com/martabenitezhernandez/translational-triangle",
-    enlace_texto = "Ver el repositorio"
+    enlace_texto = "View the repository"
   ),
   list(
     titulo   = "Science of Consciousness",
-    contexto = "INGENIO · programa Momentum",
+    contexto = "INGENIO · Momentum programme",
     fecha    = "2026",
-    estado   = "En curso",
-    descripcion = "Estudio de cómo se vivió en Twitter la polémica que se desató en 2023 tras una carta que calificaba de pseudociencia la teoría de la información integrada de la consciencia. Desarrollé el proyecto completo, desde la captura de los tweets y su procesado hasta la construcción de una red de interacciones entre usuarios. Sobre esa red apliqué análisis de grafos y algoritmos de detección de comunidades, y modelos de temas (LDA y BERTopic) para identificar de qué se hablaba, todo ello integrado en una aplicación interactiva en Streamlit.",
-    etiquetas = c("Python", "Streamlit", "NLP", "Análisis de redes"),
+    estado   = "In progress",
+    descripcion = "Study of how the controversy sparked in 2023 by a letter labelling the integrated information theory of consciousness as pseudoscience played out on Twitter. I developed the whole project, from collecting and processing the tweets to building a network of interactions between users. On that network I applied graph analysis and community detection algorithms, along with topic models (LDA and BERTopic) to identify what people were discussing, all integrated into an interactive Streamlit application.",
+    etiquetas = c("Python", "Streamlit", "NLP", "Network analysis"),
     imagen = NULL,   # añade aquí una captura cuando la tengas
     imagen_alt = NULL,
     enlace = NULL,
@@ -168,7 +168,7 @@ footer { font-size: .8rem; color: var(--muted); font-family: var(--mono); }
 js_copiar <- HTML(r"(
 document.getElementById('copy').addEventListener('click', function () {
   var btn = this, el = document.getElementById('mail');
-  function done(){ btn.textContent = 'Copiado'; setTimeout(function(){ btn.textContent = 'Copiar correo'; }, 1600); }
+  function done(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy email'; }, 1600); }
   function fallback(){ var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
   try { navigator.clipboard.writeText(el.textContent).then(done, fallback); } catch (e) { fallback(); }
 });
@@ -177,7 +177,7 @@ document.getElementById('copy').addEventListener('click', function () {
 # ========================= CONSTRUCCIÓN ===========================
 
 tarjeta_proyecto <- function(p) {
-  en_curso <- identical(p$estado, "En curso")
+  en_curso <- identical(p$estado, "In progress")
   tags$li(class = "proj",
           tags$div(class = "side",
                    tags$span(class = "when", p$fecha),
@@ -215,31 +215,31 @@ cuerpo <- tags$div(class = "wrap",
                      tags$div(
                        tags$h1(persona$nombre),
                        tags$p(class = "role", persona$rol),
-                       tags$nav(class = "links", `aria-label` = "Perfiles",
+                       tags$nav(class = "links", `aria-label` = "Profiles",
                                 lapply(enlaces, function(e)
                                   tags$a(href = e$url, target = "_blank", rel = "noopener", e$texto)))
                      ),
-                     tags$img(class = "avatar", src = persona$foto, alt = paste("Foto de", persona$nombre))
+                     tags$img(class = "avatar", src = persona$foto, alt = paste("Photo of", persona$nombre))
                    ),
                    tags$section(class = "bio", `aria-labelledby` = "bio-h",
-                                tags$h2(id = "bio-h", "Biografía"),
+                                tags$h2(id = "bio-h", "About"),
                                 lapply(biografia, tags$p)
                    ),
                    tags$section(`aria-labelledby` = "proj-h",
-                                tags$h2(id = "proj-h", "Proyectos"),
+                                tags$h2(id = "proj-h", "Projects"),
                                 tags$ul(class = "projects", lapply(proyectos, tarjeta_proyecto))
                    ),
                    tags$section(`aria-labelledby` = "contact-h",
-                                tags$h2(id = "contact-h", "Contacto"),
+                                tags$h2(id = "contact-h", "Contact"),
                                 tags$div(class = "contact",
                                          tags$span(class = "mail", id = "mail", persona$email),
-                                         tags$button(class = "copy", id = "copy", type = "button", "Copiar correo")
+                                         tags$button(class = "copy", id = "copy", type = "button", "Copy email")
                                 )
                    ),
-                   tags$footer(paste("Última actualización ·", persona$actualizado)),
+                   tags$footer(paste("Last updated ·", persona$actualizado)),
                    tags$script(js_copiar)
 )
 
 save_html(tagList(cabeza, cuerpo), file = archivo_salida,
-          background = "var(--bg)", lang = "es")
+          background = "var(--bg)", lang = "en")
 message("Web generada en ", normalizePath(archivo_salida))
